@@ -1,3 +1,10 @@
+//LIVE文字
+var text_live = document.getElementsByClassName('Text_LIVE');
+//現在のLIVE文字の見た目
+var now_view_text = "normal";
+//現在のLIVE文字の回転状態
+var nowTextRoll = 'off';
+
 setInterval("showClock()", 1000);
 
 //時計の表示が1桁の場合2桁し、揃える。
@@ -20,12 +27,8 @@ function showClock(){
     if(dayOfweek == '6' || dayOfweek == '0'){
         var clock = document.getElementById("Clock").style;
         clock.cssText = 
-            'font-family: "Share Tech Mono", monospace;\
-            font-size: 36px;\
-            color: red;\
-            text-shadow: 0 0 10px red,0 0 15px red;\
-            line-height: 1.2;\
-            text-align: center;';
+            'color: red;\
+            text-shadow: 0 0 10px red';
     }
 
     var nowHour = set2flg(nowTime.getHours());
@@ -38,14 +41,51 @@ function showClock(){
 
 //LIVE文字変更
 function Change_LIVE(value){
-    var text_live = document.getElementById('Text_LIVE');
-    switch(value){
-        case 'white':
-            text_live.style.cssText = 
-                'color:white; font-size:36px; font-weight: 200; padding-right: 20px;  display:inline-block; width: fit-content; animation: rotate 5s linear infinite;';
-            break;
-        case 'gaming':
-            text_live.style.cssText = 'font-size: 36px; padding-right: 20px; animation:rainbow 10s infinite,rotate 5s linear infinite;';
-            break;
+    for(var i=0; i < text_live.length; i++){
+        switch(value){
+            case 'white':
+                if(nowTextRoll == 'off'){
+                    text_live[i].style.cssText = 'color:white;';
+                }else{
+                    text_live[i].style.cssText =
+                        'color:white;\
+                        animation: rotate 5s linear infinite;';
+                }
+                now_view_text = 'normal';
+                break;
+            case 'gaming':
+                if(nowTextRoll == 'off'){
+                    text_live[i].style.cssText = 'animation:rainbow 10s infinite;';
+                }else{
+                    text_live[i].style.cssText =
+                        'animation:rainbow 10s infinite, rotate 5s linear infinite;';
+                }                
+                now_view_text = 'gaming';
+                break;
+        }   
+    }
+}
+
+//LIVE文字の回転
+function TextRoll(value){
+    for(var i=0; i < text_live.length; i++){
+        switch(value){
+            case 'ON':
+                if(now_view_text != 'gaming'){
+                    text_live[i].style.cssText = 'animation: rotate 5s linear infinite;';
+                }else{
+                    text_live[i].style.cssText = 'animation: rotate 5s linear infinite, rainbow 10s infinite;';
+                }
+                nowTextRoll = 'on';
+                break;
+            case 'OFF':
+                if(now_view_text != 'gaming'){
+                    text_live[i].style.cssText = '';
+                }else{
+                    text_live[i].style.cssText = 'animation: rainbow 10s infinite;';
+                }
+                nowTextRoll = 'off';
+                break;
+        }
     }
 }
