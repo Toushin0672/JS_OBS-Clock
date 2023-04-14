@@ -1,18 +1,39 @@
-/*共通*/
+/* 共通 */
 body{
     background-color: black;
     color: white;
-    margin: 0;
+    margin: 0px auto;
+    overflow: hidden;
 }
 
-span#text-color{
-    color: white;
-    font-size:36px;
+div#MainArea{
+    margin-bottom: 100px;
+}
+
+/* Live文字 */
+#Text_LIVE{
+    color: #ffffff;
+    font-size: 36px;
     font-weight: 200;
+    padding-right: 20px;
+    display:inline-block;
+    animation: rotate 5s linear infinite;
+    width: fit-content;
 }
 
+/* 時計 */
+#Clock{
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 36px;
+    color: #daf6ff;
+    text-shadow: 0 0 20px #0aafe6;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* アニメーション */
 @keyframes rainbow{
-     0%{color:#e60000}
+    0%{color:#e60000}
     12%{color:#f39800;}
     24%{color:#ffcf53;}
     36%{color:#e8ff53;}
@@ -20,15 +41,15 @@ span#text-color{
     60%{color:#53ffbc;}
     72%{color:#5393ff;}
     84%{color:#ca53ff;}
-    100%{color:#ff53bd;}
+    96%{color:#ff53bd;}
+    100%{color:#dc143c;} 
 }
 
-/*digital*/
-#RealtimeClockArea-digital{
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 36px;
-    color: #daf6ff;
-    text-shadow: 0 0 20px #0aafe6;
-    line-height: 1.2;
-    text-align: center;
-  }
+@keyframes rotate {
+    0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+}
