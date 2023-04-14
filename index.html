@@ -2,24 +2,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>JS_Clock-OBS</title>
+        <title>JS_OBS-Clock</title>
         <link href="css/index.css" rel="stylesheet">
     </head>
     <body>
-        <p id="Realtimecalendar-on"></p>
-        <span id="text-color">LIVE </span>
-        <span id="RealtimeClockArea-digital">※ここに時計が表示されます。</span>
-        <br><br><br><br><br>
-        <p>・「LIVE」の見た目変更</p>
-        <form>
-            <input type="radio" name="Live-Color" value="white" checked onchange="radio_func3('white')">White
-            <input type="radio" name="Live-Color" value="gaming" onchange="radio_func3('gaming')">Gaming
-        </form>
+        <div id="MainArea">
+            <span id="Text_LIVE">LIVE</span>
+            <span id="Clock">※ここに時計が表示されます。</span>
+        </div>
+        <div id="SettingArea">
+            <p>・「LIVE」の見た目を変更</p>
+            <form>
+                <input type="radio" name="LiveColor" value="white" checked onchange="Change_LIVE('white')">White
+                <input type="radio" name="LiveColor" value="gaming" onchange="Change_LIVE('gaming')">Gaming
+            </form>
+        </div>
     </body>
     <script src="js/index.js"></script>
 </html>
-
-
-<!--
-日付非表示/LIVE白文字縁なし/時計デジタル
--->
