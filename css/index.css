@@ -11,8 +11,12 @@ div#MainArea{
 }
 
 /* Live文字 */
+div.Text_Area{
+    padding-left:35px;
+}
+
 .Text_LIVE{
-    color: #ffffff;
+    color: red;
     font-size: 36px;
     display:inline-block;
     width: fit-content;

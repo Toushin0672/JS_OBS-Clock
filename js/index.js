@@ -21,16 +21,6 @@ function set2flg(num){
 //時計
 function showClock(){
     var nowTime = new Date();
-
-    //土曜日と日曜日のみ時計色を赤に変更
-    var dayOfweek = nowTime.getDay();
-    if(dayOfweek == '6' || dayOfweek == '0'){
-        var clock = document.getElementById("Clock").style;
-        clock.cssText = 
-            'color: red;\
-            text-shadow: 0 0 10px red';
-    }
-
     var nowHour = set2flg(nowTime.getHours());
     var nowMin  = set2flg(nowTime.getMinutes());
     var nowSec  = set2flg(nowTime.getSeconds());
@@ -43,12 +33,12 @@ function showClock(){
 function Change_LIVE(value){
     for(var i=0; i < text_live.length; i++){
         switch(value){
-            case 'white':
+            case 'red':
                 if(nowTextRoll == 'off'){
-                    text_live[i].style.cssText = 'color:white;';
+                    text_live[i].style.cssText = 'color:red;';
                 }else{
                     text_live[i].style.cssText =
-                        'color:white;\
+                        'color:red;\
                         animation: rotate 5s linear infinite;';
                 }
                 now_view_text = 'normal';
@@ -89,3 +79,4 @@ function TextRoll(value){
         }
     }
 }
+

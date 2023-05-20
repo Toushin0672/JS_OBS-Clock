@@ -7,16 +7,20 @@
     </head>
     <body>
         <div id="MainArea">
-            <span class="Text_LIVE">L</span>
-            <span class="Text_LIVE">I</span>
-            <span class="Text_LIVE">V</span>
-            <span class="Text_LIVE">E</span>
-            <span id="Clock">※ここに時計が表示されます。</span>
+            <div class="Text_Area">
+                <span class="Text_LIVE">L</span>
+                <span class="Text_LIVE">I</span>
+                <span class="Text_LIVE">V</span>
+                <span class="Text_LIVE">E</span>
+            </div>
+            <div class="Clock_Area">
+                <span id="Clock">※ここに時計が表示されます。</span>
+            </div>
         </div>
         <div id="SettingArea">
             <p>・「LIVE」の見た目を変更</p>
             <form>
-                <input type="radio" name="LiveColor" value="white" checked onchange="Change_LIVE('white')">White
+                <input type="radio" name="LiveColor" value="red" checked onchange="Change_LIVE('red')">Red
                 <input type="radio" name="LiveColor" value="gaming" onchange="Change_LIVE('gaming')">Gaming
             </form>
             <p>・文字の回転</p>
